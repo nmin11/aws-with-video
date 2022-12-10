@@ -1,10 +1,11 @@
+import React from 'react';
 import './App.css';
-import {VideoDropZone} from "./componets/VideoDropZone";
+import { VideoDropzone } from './components/VideoDropzone';
 
-const App = () => {
+function App() {
   return (
     <>
-      <VideoDropZone/>
+      <VideoDropzone/>
     </>
   );
 }
