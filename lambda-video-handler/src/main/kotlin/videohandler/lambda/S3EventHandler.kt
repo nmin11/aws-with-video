@@ -1,4 +1,4 @@
-package videohandler.lambda.trigger
+package videohandler.lambda
 
 import com.amazonaws.auth.AWSStaticCredentialsProvider
 import com.amazonaws.auth.BasicAWSCredentials
@@ -21,7 +21,7 @@ class S3EventHandler: RequestHandler<S3Event, String> {
   private val secretAccessKey = System.getenv("SECRET_ACCESS_KEY")
   private val basicAWSCredentials: BasicAWSCredentials = BasicAWSCredentials(accessKeyId, secretAccessKey)
 
-  val s3Client: AmazonS3 = AmazonS3ClientBuilder
+  private val s3Client: AmazonS3 = AmazonS3ClientBuilder
     .standard()
     .withCredentials(AWSStaticCredentialsProvider(basicAWSCredentials))
     .withRegion(Regions.AP_NORTHEAST_2)
@@ -29,6 +29,8 @@ class S3EventHandler: RequestHandler<S3Event, String> {
 
   override fun handleRequest(s3Event: S3Event, context: Context): String? {
     logger.info("Lambda function is invoked: $s3Event")
+    logger.info(accessKeyId)
+    logger.info(secretAccessKey)
 
     val bucketName = s3Event.records[0].s3.bucket.name
     val fileName = s3Event.records[0].s3.`object`.key
