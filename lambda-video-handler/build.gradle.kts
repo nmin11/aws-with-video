@@ -29,6 +29,7 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.springframework.cloud:spring-cloud-function-context")
 	implementation("org.projectlombok:lombok:1.18.24")
+	implementation("org.apache.commons:commons-lang3:3.12.0")
 	implementation("com.amazonaws:aws-lambda-java-core:1.2.2")
 	implementation("com.amazonaws:aws-lambda-java-events:3.11.0")
 	implementation("com.amazonaws:aws-java-sdk-s3:1.12.376")

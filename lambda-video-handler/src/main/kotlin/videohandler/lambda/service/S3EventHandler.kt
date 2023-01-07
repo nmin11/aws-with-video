@@ -9,6 +9,7 @@ import com.amazonaws.services.lambda.runtime.events.S3Event
 import com.amazonaws.services.s3.AmazonS3
 import com.amazonaws.services.s3.AmazonS3ClientBuilder
 import org.apache.commons.io.FileUtils
+import org.apache.commons.lang3.RandomStringUtils
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import java.io.File
@@ -44,11 +45,12 @@ class S3EventHandler: RequestHandler<S3Event, String> {
       return "Error reading contents of the file"
     }
 
-    val videoFile = File.createTempFile(inputStream.hashCode().toString(), ".tmp")
-    videoFile.deleteOnExit()
+    val randomFileName = RandomStringUtils.randomAlphanumeric(10)
+    val filePath = "/tmp/$randomFileName.mp4"
+    val videoFile = File(filePath)
     FileUtils.copyInputStreamToFile(inputStream, videoFile)
 
-    ffmpegHandler.encode(videoFile)
+    ffmpegHandler.encode(filePath)
 
     return null
   }
