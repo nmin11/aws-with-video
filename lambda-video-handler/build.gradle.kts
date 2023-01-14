@@ -32,8 +32,9 @@ dependencies {
 	implementation("org.apache.commons:commons-lang3:3.12.0")
 	implementation("com.amazonaws:aws-lambda-java-core:1.2.2")
 	implementation("com.amazonaws:aws-lambda-java-events:3.11.0")
-	implementation("com.amazonaws:aws-java-sdk-s3:1.12.376")
+	implementation("com.amazonaws:aws-java-sdk-s3:1.12.382")
 	implementation("net.bramp.ffmpeg:ffmpeg:0.7.0")
+	implementation("software.amazon.awssdk:bom:2.19.13")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
