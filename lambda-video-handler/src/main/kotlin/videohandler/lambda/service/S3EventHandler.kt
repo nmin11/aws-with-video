@@ -65,8 +65,6 @@ class S3EventHandler: RequestHandler<S3Event, String> {
       return "Error uploading thumbnail of the video"
     }
 
-    // s3Client.putObject(bucketName, "lambda/thumbnail/$randomFileName.jpg", File(thumbnailFilePath))
-
     return null
   }
 }
