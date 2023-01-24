@@ -16,6 +16,8 @@ repositories {
 }
 
 dependencies {
+  implementation(platform("software.amazon.awssdk:bom:2.19.22"))
+  implementation("software.amazon.awssdk:s3")
   implementation("org.springframework.boot:spring-boot-starter-web")
   implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
   implementation("org.jetbrains.kotlin:kotlin-reflect")
